@@ -85,6 +85,12 @@ public class Test {
 
       // Make the window visible
       glfwShowWindow(window);
+      
+      
+      GL11.glMatrixMode(GL_PROJECTION);
+      GL11.glLoadIdentity();
+      GL11.glOrtho(0, 800, 0, 500, 1, -1);
+      GL11.glMatrixMode(GL_MODELVIEW);
    }
 
    private void loop() {
@@ -120,6 +126,16 @@ public class Test {
          // glVertex3f( 1.0f,-1.0f, 0.0f);
          // glEnd();
          // System.out.println("finished triangle");
+         
+         
+         glColor3f(0.5f, 0.5f, 1.0f);
+         glBegin(GL_QUADS);
+         	glVertex2f(100, 100);
+         	glVertex2f(300, 100);
+         	glVertex2f(300, 300);
+         	glVertex2f(100, 300);
+         glEnd();
+         
       }
    }
 
