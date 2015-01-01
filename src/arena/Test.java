@@ -87,13 +87,15 @@ public class Test {
       glfwShowWindow(window);
       
       
-      GL11.glMatrixMode(GL_PROJECTION);
-      GL11.glLoadIdentity();
-      GL11.glOrtho(0, 800, 0, 500, 1, -1);
-      GL11.glMatrixMode(GL_MODELVIEW);
+//      GL11.glMatrixMode(GL_PROJECTION);
+//      GL11.glLoadIdentity();
+//      GL11.glOrtho(0, 800, 0, 500, 1, -1);
+//      GL11.glMatrixMode(GL_MODELVIEW);
    }
 
    private void loop() {
+	   glfwMakeContextCurrent(window);
+	   
       // This line is critical for LWJGL's interoperation with GLFW's
       // OpenGL context, or any context that is managed externally.
       // LWJGL detects the context that is current in the current thread,
