@@ -107,6 +107,17 @@ public class Test {
 			// Poll for window events. The key callback above will only be
 			// invoked during this call.
 			glfwPollEvents();
+			
+			//glClearColor(0.0f, 255.0f, 0.0f, 0.0f);
+//			glLoadIdentity();
+//			glTranslatef(-1.5f, 0.0f, -6.0f);
+//			System.out.println("starting triangle");
+//			glBegin(GL_TRIANGLES);
+//				glVertex3f( 0.0f, 1.0f, 0.0f);
+//				glVertex3f(-1.0f,-1.0f, 0.0f);
+//				glVertex3f( 1.0f,-1.0f, 0.0f);
+//			glEnd();
+//			System.out.println("finished triangle");
 		}
 	}
 
