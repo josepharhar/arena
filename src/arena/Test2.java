@@ -13,6 +13,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public class Test2 {
 
+	private int frames = 1;
+	
 	private GLFWErrorCallback errorCallback;
 	private long id;
 	
@@ -54,57 +56,40 @@ public class Test2 {
 	}
 	
 	private void loop() {
+		long start = System.nanoTime();
+		
+		float rotation = 0;
+		
 		while (glfwWindowShouldClose(id) == GL_FALSE) {
+			
+			System.out.println((System.nanoTime() - start) / frames / 1000000l);
+			
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			glfwPollEvents();
 			
-//			glViewport(0, 0, 800, 600);
-//			glColor3f(0.0f, 255.0f, 0.0f);
-//	        glBegin(GL_QUADS);
-//	        	glVertex2f(100, 100);
-//	        	glVertex2f(300, 100);
-//	        	glVertex2f(300, 300);
-//	        	glVertex2f(100, 300);
-//	        glEnd();
-			
-//			 glClearColor(0.0f, 255.0f, 0.0f, 0.0f);
-//	          glLoadIdentity();
-//	          glTranslatef(-1.5f, 0.0f, -6.0f);
-//	          System.out.println("starting triangle");
-//	          glBegin(GL_TRIANGLES);
-//	          glVertex3f( 0.0f, 1.0f, 0.0f);
-//	          glVertex3f(-1.0f,-1.0f, 0.0f);
-//	          glVertex3f( 1.0f,-1.0f, 0.0f);
-//	          glEnd();
-//	          System.out.println("finished triangle");
-			
-//			glClearColor(0, 255, 0, 0);
-//			glColor3f(0, 0, 255);
-//			glTranslatef(1f, 1f, 0f);
-//			glBegin(GL_QUADS);
-//				glVertex2f(20, 20);
-//				glVertex2f(30, 20);
-//				glVertex2f(30, 30);
-//				glVertex2f(20, 30);
-//			glEnd();
-			// set the color of the quad (R,G,B,A)
 	        GL11.glColor3f(0.5f,0.5f,1.0f);
 	             
-	        // draw quad
+	        //glTranslatef(1f, 1f, 0f);
+	        
+	        GL11.glRotatef(rotation, 0f, 1f, 0f);
+
 	        GL11.glBegin(GL11.GL_POLYGON);
-//	            GL11.glVertex2f(100,100);
-//	        GL11.glVertex2f(100+200,100);
-//	        GL11.glVertex2f(100+200,100+200);
-//	        GL11.glVertex2f(100,100+200);
+	        	glColor3f(0, 0, 255);
 	        	glVertex3f(100, 100, 0);
+	        	glColor3f(0, 255, 0);
 	        	glVertex3f(100, 400, 0);
+	        	glColor3f(255, 0, 0);
 	        	glVertex3f(400, 400, 0);
+	        	glColor3f(255, 255, 255);
 	        	glVertex3f(400, 100, 0);
 	        GL11.glEnd();
 
 			glfwSwapBuffers(id);
 			
+			System.out.println(frames);
+			frames++;
+			rotation += .02f;
 		}
 	}
 	
