@@ -51,7 +51,7 @@ public class Test2 {
 		
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		glOrtho(0, 800, 0, 600, 1, -1);
+		glOrtho(-800, 800, -600, 600, 1000, -1000);
 		glMatrixMode(GL_MODELVIEW);
 	}
 	
