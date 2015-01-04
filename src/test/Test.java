@@ -1,4 +1,4 @@
-package arena;
+package test;
 
 import org.lwjgl.Sys;
 import org.lwjgl.glfw.*;
