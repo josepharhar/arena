@@ -107,7 +107,7 @@ public class Test4 {
         glLight(GL_LIGHT1, GL_DIFFUSE, lightDiffuse);
         glLight(GL_LIGHT1, GL_POSITION, lightPosition);
         
-//        glEnable(GL_LIGHT1);
+        glEnable(GL_LIGHT1);
         
         // Key variables
         boolean kpressed = false;
@@ -136,8 +136,9 @@ public class Test4 {
             if (glfwGetKey(id, GLFW_KEY_F) == GLFW_PRESS) {
                 if (!kpressed) {
                     kpressed = true;
-                    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-                    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+                    glBindTexture(GL_TEXTURE_2D, textureID);
+                    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+                    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, grassImage.getWidth(), grassImage.getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, grassBuffer);
                 }
             } else {
